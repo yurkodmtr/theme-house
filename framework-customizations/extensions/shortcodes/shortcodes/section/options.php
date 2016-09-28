@@ -14,6 +14,7 @@ $options = array(
 	'block_class' => array(
 		'label'        => __('Add block class', 'fw'),
 		'type'         => 'text',
+		'help'  => __('Available classes:<br/> advantages, about', 'fw'),
 	),
 	'is_fullwidth' => array(
 		'label'        => __('Full Width', 'fw'),
