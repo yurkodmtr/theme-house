@@ -1,0 +1,847 @@
+@import 'jeet' 
+@import 'rupture'
+@import 'kouto-swiss' 
+
+@import 'partials/vars'
+@import 'partials/mixins' 
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=cyrillic')
+@import '../fonts/font-awesome/css/font-awesome.css'
+
+// reset
+meyer-reset() 
+*
+  box-sizing(border-box) 
+  input, textarea
+  	border none
+  	outline none
+
+.clearfix
+	&:after
+		content ''
+		display block
+		clear both
+
+//typography
+h2
+	font-size rem(31px)
+	line-height rem(35px)
+	font-weight 700
+	text-align center
+	position relative
+	padding-bottom rem(27px)
+	margin-bottom rem(40px)
+	&:before
+		content ""
+		display block
+		width 30px
+		height 4px
+		background red
+		position absolute
+		bottom 0px
+		left 0px
+		right 0px
+		margin 0 auto
+h3
+	font-size rem(25px) 
+	line-height rem(31px)
+	font-weight 700
+	padding-bottom rem(17px)
+	margin-bottom rem(40px)
+	background url(../images/title_bg.png) repeat-x center bottom
+	a
+		text-decoration none
+		color black
+h4
+	font-size rem(20px) 
+	line-height rem(26px)
+	font-weight 700
+	padding-bottom rem(18px)
+	margin-bottom rem(35px)
+	background url(../images/title_bg.png) repeat-x center bottom
+
+
+html
+  font-size ks-rem-base  
+
+body, html
+  height 100% 
+
+body 
+	background grey 
+	font-family font-stack(base-font-family) 
+
+// preloader
+.preloader
+	position fixed
+	z-index 999
+	left 0px
+	top 0px
+	width 100%
+	height 100%
+	background white
+	img 
+		position absolute
+		left 0px
+		top 0px
+		right 0px
+		bottom 0px
+		margin auto
+
+// layout
+.center 
+	clearfix()
+	center(container, gutter) 
+.container
+	padding-top rem(52px)
+	padding-bottom rem(70px)
+	&__home_page
+		padding-top 0px
+		padding-bottom 0px
+.content
+	column(9/12)
+	+below(desktop-cutoff)
+		stack()
+		margin-bottom rem(30px)
+.sidebar
+	column(3/12)
+	+below(desktop-cutoff)
+		stack()
+
+//form
+.form
+	.input		
+		line-height 1;
+		font-size rem(14px)
+		background white
+		color #9f9f9f
+		+placeholder()
+    		color: #9f9f9f
+		text-align left
+		height rem(47px)
+		border 1px solid #e3e3e3
+		padding rem(0px 10px)
+	.textarea		
+		line-height rem(18px)
+		font-size rem(14px)
+		background white
+		color #9f9f9f
+		+placeholder()
+    		color: #9f9f9f
+		text-align left
+		border 1px solid #e3e3e3
+		padding rem(10px)
+		resize none
+		font-family font-stack(base-font-family) 
+	.submit		
+		line-height 1;
+		font-size rem(14px)
+		background red
+		color white
+		height rem(47px)
+		border 1px solid red
+		cursor pointer
+		padding rem(0px 10px)
+		transition(all 200ms ease-out)
+		opacity 1
+		&:hover
+			opacity 0.8
+
+// map
+.map
+	padding rem(4px)
+	background white
+	iframe
+		width 100%!important
+
+// --------------------------------------------- header
+.mainheader
+	&__top
+		background red
+		padding rem(9px 0px 10px)
+		text-align right		
+		span
+			display none
+		+below(mobile-cutoff)
+			text-align center		
+			span
+				display block
+				height 10px
+		a
+			display inline-block
+			color white
+			position relative
+			padding-left 22px
+			text-decoration none
+			font-weight 300
+			text-transform uppercase
+			font-size rem(13px)
+			line-height rem(15px)
+			&:hover
+				text-decoration underline
+			&:before
+				font-family: FontAwesome;		
+				display block
+				position absolute
+				left 0px
+				color white
+			&.phone
+				margin-right rem(22px)
+				+below(mobile-cutoff)
+					margin-right 0px
+				&:before
+					content "\f095"
+			&.mail
+				&:before
+					content "\f003"
+
+.mainheader
+	&__middle
+		padding rem(31px 0px 37px 0px)
+		+below(desktop-cutoff)
+			padding rem(31px 0px 17px 0px)
+		.logo
+			column(2/12)
+			+below(desktop-cutoff)
+				stack()
+				text-align center
+				margin-bottom 20px
+			a
+				display inline-block
+				img 
+					max-width 100%
+		.nav			
+			column(10/12)
+			+below(desktop-cutoff)
+				stack()
+				text-align center
+			text-align right
+			padding-top rem(13px)
+			ul
+				display inline-block
+				li
+					display inline-block
+					margin-right rem(20px)
+					+below(desktop-cutoff)
+						margin-bottom rem(20px)
+					+below(mobile-cutoff)
+						display block
+						margin-right 0px
+						margin-bottom 20px
+					&:last-child
+						margin-right 0px
+					a
+						font-weight 700
+						text-transform uppercase
+						font-size rem(14px)
+						color black
+						text-decoration none
+						&:hover
+							text-decoration underline
+
+.mainheader
+	&__bottom
+		.slideshow
+			position relative
+			width 100%
+			height 585px
+			padding rem(0px 15px)
+			.slide
+				position absolute
+				left 0px
+				right 0px
+				width 100%
+				height 100%
+				background-position: center center;
+				background-repeat: no-repeat;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				.table 
+					display table
+					width 100%
+					height 100%
+					.table-cell
+						padding rem(0px 15px)
+						display table-cell
+						vertical-align middle
+				blockquote
+					center(820px)					
+					background rgba(0,0,0,0.7)
+					border-left 9px solid red
+					padding rem(30px 30px 30px 30px)
+					+below(mobile-cutoff)
+						padding rem(30px 15px 30px 15px)
+					color white
+					.title
+						font-size rem(31px)
+						line-height rem(36px)
+						margin-bottom rem(17px)
+						font-weight 700
+					.descr
+						font-size rem(15px)
+						line-height rem(22px)
+						font-weight 300
+
+.mainheader
+	&__footer
+		background-position: center center;
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-image: url(../images/mainheader__footer.jpg);
+		height rem(63px)
+
+// --------------------------------------------- mainpage start
+.mainpage_block
+	padding rem(64px 0px 74px 0px)
+	&__white 
+		background white
+
+//advantages
+.advantages
+	.item 
+		&__list
+			clearfix()
+			center(870px)
+		box-shadow(0px 3px 7px 0px rgba(0,0,0,0.15))
+		column(1/3) 
+		+below(tablet-cutoff)
+			stack()
+			margin-bottom 20px
+			&:last-child
+				margin-bottom 0px
+		background white
+		padding rem(30px 12px 20px 12px)
+		text-align center
+		figure 
+			display table
+			width 100%
+			height 130px
+			vertical-align middle
+			margin-bottom rem(45px)
+			span 
+				display table-cell
+				img 
+					display inline-block
+					max-width 100%
+					max-height 100%
+		.title
+			font-size rem(17px)
+			font-weight 700
+			margin-bottom rem(23px)
+		.descr
+			font-size rem(14px)
+			font-weight 400
+			line-height rem(18px)
+
+//about
+.about		
+	blockquote
+		margin-bottom rem(46px)
+		margin-right rem(130px)
+		+below(desktop-cutoff) 
+			margin-right rem(0px)
+		background grey
+		padding rem(33px 32px 35px 32px)
+		border-left 8px solid red
+		font-size rem(15px)
+		line-height rem(22px)
+		font-weight 300
+
+	.projects
+		&__row
+			clearfix()
+			&:nth-child(even)
+				text-align right
+				figure
+					shift(1/2)
+					+below(tablet-cutoff)
+						unshift()
+				.projects__descr
+					shift(-1/2)
+					+below(tablet-cutoff)
+						unshift()
+						text-align left
+			margin-bottom rem(45px)
+			&:last-child
+				margin-bottom 0px
+		figure
+			display block
+			column(1/2)	
+			+below(tablet-cutoff)
+				stack()	
+				unshift()	
+				img
+					width 100%
+			img
+				display block
+				max-width 100%
+		&__descr
+			column(1/2)
+			+below(tablet-cutoff)
+				stack()
+				unshift()
+				padding rem(30px 0px 30px 0px)
+			padding rem(30px 30px 30px 30px)
+			.title
+				font-size rem(24px)
+				line-height rem(30px)
+				font-weight 700
+				margin-bottom rem(30px)
+			.descr
+				font-size rem(14px)
+				font-weight 300
+				line-height rem(18px)
+
+//phone_form
+.phone_form 
+	h2
+		margin-bottom rem(18px)
+	text-align center	
+	.title
+		font-size rem(17px)
+		line-height rem(24px)
+		margin-bottom rem(49px)
+		font-weight 700
+	article
+		clearfix()
+		center(705px)
+		margin-bottom rem(35px)		
+		.input
+			column (8/12)
+			text-align left 
+			+below(mobile-cutoff)
+				stack()
+				margin-bottom 20px
+		.submit
+			column (4/12)
+			+below(mobile-cutoff)
+				stack()
+	.descr
+		font-size rem(16px)
+		line-height rem(24px)
+		font-weight 700
+		color red
+		margin-bottom rem(16px)
+
+	.btns 
+		a
+			font-size rem(16px)
+			line-height rem(24px)
+			display inline-block
+			color red
+			position relative
+			padding-left 22px
+			text-decoration none
+			font-weight 600
+			text-transform uppercase
+			&:hover
+				text-decoration underline
+			&:before
+				font-family: FontAwesome;		
+				display block
+				position absolute
+				left 0px
+				color red
+			&.phone
+				margin-right rem(22px)
+				&:before
+					top 2px
+					content "\f095"
+			&.mail
+				&:before
+					content "\f003"
+
+//QA
+.qa 
+	.item
+		padding-bottom rem(27px)			
+		border-bottom 1px solid #e9e9e9
+		display table
+		margin-bottom rem(21px)
+		+below(mobile-cutoff)
+			padding-bottom 0px
+			display block
+			margin-bottom rem(40px)
+		&:last-child
+			margin-bottom 0px
+		ul
+			display table-row
+			&:first-child
+				li
+					padding-bottom rem(30px)
+			+below(mobile-cutoff)
+				display block
+
+			li
+				display table-cell
+				+below(mobile-cutoff)
+					display block
+				vertical-align top
+				&:first-child
+					width 110px
+					+below(mobile-cutoff)
+						width 100%
+					font-size rem(19px)
+					font-weight 700
+				&:last-child
+					font-weight 300
+					font-size rem(15px)
+					line-height rem(19px)
+				&.item__bold
+					font-weight 700
+				+below(mobile-cutoff)
+					padding-bottom rem(30px)
+
+//post
+.post
+	margin-bottom rem(50px)
+	&:last-child:not(:first-child)
+		margin-bottom 0px
+	clearfix()
+	figure
+		column(1/3)
+		margin-bottom rem(15px)
+		img
+			display block
+			width 100%
+		+below(mobile-cutoff)
+			stack()
+			margin-bottom rem(30px)
+	article		 					
+		a 
+			font-size rem(19px)
+			font-weight 700
+			text-decoration none
+			color black
+			margin-bottom rem(20px)
+			display inline-block
+		.descr			
+			font-size rem(14px)
+			line-height rem(18px)
+			font-weight 300
+	&__padding
+		article
+			.descr
+				padding-top rem(20px)
+				+below(tablet-cutoff)
+					padding-top 0px
+
+//post_detail
+.post_detail
+	strong
+		font-size rem(19px)
+		display block
+		font-weight 700
+		margin-bottom rem(19px)
+	p
+		font-size rem(14px)
+		line-height rem(18px)
+		margin-bottom rem(18px)
+
+//additional_services
+.additional_services
+	.item
+		&__list
+			clearfix()
+			text-align center
+		width rem(165px)		
+		display inline-block
+		margin-right rem(110px)
+		&:last-child 
+			margin-right 0px
+		+below(desktop-cutoff) 
+			margin-right rem(50px) 
+		+below(tablet-cutoff) 
+			display block
+			margin 0 auto 50px auto!important
+			&:last-child 
+				margin-bottom 0px			
+		text-align center
+		text-decoration none
+		color black
+		&:hover
+			text-decoration underline
+		
+		figure
+			margin-bottom rem(20px)
+			height 165px;
+			background-position: center center;
+			background-repeat: no-repeat;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+
+			border-radius 50%
+			border 2px solid #f5f5f5
+			padding 1px
+			position relative
+			span
+				border 7px solid #f5f5f5
+				position absolute
+				left 1px
+				top 1px
+				width 159px
+				height 159px
+				border-radius 50%
+		.title
+			font-size rem(21px)
+			font-weight 700
+
+
+
+//partners
+.partners
+	.item
+		&__list
+			clearfix()
+		column(1/3, cycle: 3)
+		+below(mobile-cutoff)
+			stack()
+		background white
+		box-shadow(0px 3px 7px 0px rgba(0,0,0,0.15))			
+		margin-bottom rem(35px)
+		padding rem(15px)
+		figure
+			position relative
+			height rem(130px)
+		img
+			display block
+			max-width 100%
+			max-height 100%
+			position absolute
+			left 0px
+			top 0px
+			right 0px
+			bottom 0px
+			margin auto
+
+//documents
+.documents
+	.item
+		column(1/3, cycle: 3)
+		+below(tablet-cutoff) 
+			column(1/2, cycle: 2, uncycle: 3)
+		+below(mobile-cutoff)
+			stack()
+		background white
+		text-decoration none
+		&:hover
+			text-decoration underline
+		color black
+		box-shadow(0px 3px 7px 0px rgba(0,0,0,0.15))
+		margin-bottom rem(30px)
+		figure
+			background-position: center center;
+			background-repeat: no-repeat;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			height rem(190px)
+			position relative
+			span
+				border 5px solid rgba(255,255,255,0.4)
+				border-bottom 0px
+				position absolute
+				left 0px
+				top 0px
+				width 100%
+				height 100%
+
+		article
+			padding rem(23px 34px 23px 34px)
+			+below(tablet-cutoff)
+				padding rem(20px)
+			div
+				font-size rem(15px)
+				line-height rem(22px)
+				font-weight 700
+
+//card
+.card
+	img
+		max-width 100%
+
+
+//contacts
+.contacts
+	.content
+		column(8/12)
+		shift(4/12)
+		+below(tablet-cutoff)
+			stack()
+			unshift()
+	.sidebar 
+		column(4/12)
+		shift(-8/12)
+		+below(tablet-cutoff)
+			stack()
+			unshift()
+
+//contacts__content
+.contacts
+	&__content
+		clearfix();
+		.item__list
+			clearfix()
+			column(3/12)
+			+below(desktop-cutoff)
+				stack()
+				margin-bottom rem(30px)
+			.item				
+				margin-bottom rem(25px)
+				+below(desktop-cutoff)
+					margin-bottom 0px
+					column(1/3)
+					+below(mobile-cutoff)
+						stack()
+						margin-bottom rem(30px)
+						&:last-child
+							margin-bottom 0px
+				&:last-child
+					margin-bottom 0px
+				figure
+					box-shadow(0px 3px 7px 0px rgba(0,0,0,0.15))
+					max-width rem(290px)
+					margin 0 auto
+					img
+						display block
+						width 100%
+						margin-bottom rem(10px)
+						border 1px solid white
+				.descr
+					text-align center;
+					font-size rem(13px)
+					span	
+						font-weight 700
+						font-size rem(14px)
+						display block
+						margin-bottom rem(4px)
+		.map
+			column(9/12)
+			+below(desktop-cutoff)
+				stack()
+			iframe
+				height rem(570px)
+				+below(tablet-cutoff)
+					height rem(250px)
+
+
+
+
+
+
+
+// --------------------------------------------- sidebar
+//sidebar info
+.sidebar
+	padding-top rem(5px)
+	.info
+		margin-bottom 34px
+		li
+			display block
+			margin-bottom rem(14px)
+			&:last-child
+				margin-bottom 0px
+			span, a 
+				display inline-block
+				position relative
+				padding-left rem(19px)				
+				font-size rem(13px)
+				font-weight 300			
+				&:before
+					font-family: FontAwesome;		
+					display block
+					position absolute
+					left 0px
+					color red
+				&.phone 
+					&:before
+						content "\f095"
+				&.mail
+					&:before
+						content "\f003"
+				&.time
+					&:before
+						left:1px;
+						content "\f017"
+				&.address
+					&:before
+						left:3px
+						content "\f041"
+			a 
+				color red
+				text-transform uppercase
+				text-decoration none
+				&:hover
+					text-decoration underline
+
+//sidebar form
+.sidebar
+	.form
+		center(600px)
+		margin-bottom rem(22px)
+		.input
+			height rem(43px)
+		.input, .textarea
+			width 100%
+			margin-bottom 7px
+			&:last-child
+				margin-bottom 0px
+		.submit
+			height rem(43px)
+			padding rem(0px 23px)
+			text-transform uppercase
+			font-weight 700
+
+//sidebar map
+.sidebar
+	.map
+		iframe
+			height 178px!important
+
+
+
+// --------------------------------------------- pagefooter
+.pagefooter
+	background green
+	padding rem(64px 0px 57px 0px)
+	text-align center
+	color white
+	.nav
+		margin-bottom rem(24px)
+		+below(tablet-cutoff)
+			margin-bottom rem(40px)
+		li
+			display inline-block
+			margin rem(0px 10px)
+			+below(tablet-cutoff)
+				margin rem(0px 10px 20px 10px)
+			+below(mobile-cutoff)
+				display block
+				margin rem(0px 0px 20px 0px)
+			a 
+				color white
+				display inline-block
+				text-decoration none
+				font-size rem(13px)
+				font-weight 700				
+				text-transform uppercase
+				&:hover
+					text-decoration underline
+	.copyright
+		font-size rem(12px)
+		font-weight 300 
+
+
+
+	
+
+
+
