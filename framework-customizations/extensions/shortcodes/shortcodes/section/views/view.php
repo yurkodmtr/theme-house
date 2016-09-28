@@ -29,6 +29,8 @@ $container_class = ( isset( $atts['is_fullwidth'] ) && $atts['is_fullwidth'] ) ?
 $block_class = ( isset( $atts['block_class'] ) && $atts['block_class'] ) ? $atts['block_class'] : '';
 $white_bg = ( isset( $atts['white_bg'] ) && $atts['white_bg'] ) ? 'mainpage_block__white' : '';
 $is_homepage = ( isset( $atts['is_homepage'] ) && $atts['is_homepage'] ) ? 'true' : 'false';
+
+
 ?>
 
 <?php 
@@ -36,7 +38,7 @@ $is_homepage = ( isset( $atts['is_homepage'] ) && $atts['is_homepage'] ) ? 'true
 ?>
 
 	<section class="fw-main-row <?php echo esc_attr($section_extra_classes) ?>" <?php echo $section_style; ?> <?php echo $bg_video_data_attr; ?>>
-		<div class="<?php echo esc_attr($container_class); ?>">
+		<div class="<?php echo $container_class; ?>">
 			<?php echo do_shortcode( $content ); ?>
 		</div>
 	</section>

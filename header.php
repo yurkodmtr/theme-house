@@ -20,30 +20,46 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'theme-house' ); ?></a>
+<div class="preloader">
+	<img src="<?php echo get_template_directory_uri(); ?>/assets/images/preloader.gif" alt="">
+</div>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
+<div class="wrapper">
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
+	<header class="mainheader">
+		
+		<section class="mainheader__top">
+			<div class="center">
+				<a href="tel:+491702678471" class="phone">
+					+49 170 2678 471
+				</a>
+				<span></span>
+				<a href="mailto:<?php echo get_bloginfo('admin_email'); ?>" class="mail">
+					<?php echo get_bloginfo('admin_email'); ?>
+				</a>
+			</div>
+		</section>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'theme-house' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		<section class="mainheader__middle">
+			<div class="center">
+				<div class="logo">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.jpg" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
+					</a>
+				</div>
+				<div class="nav">
+					<?php wp_nav_menu(array( 'container' => '', 'menu' => 'header_menu', 'menu_class' => '')); ?>
+				</div>
+			</div>
+		</section>
+ 		<?php
+ 			if( !is_front_page() ){
+ 		?>
+ 			<section class="mainheader__footer"></section>		
+		<?php }  ?>
 
-	<div id="content" class="site-content">
+
+	</header>
+
+
+	<section class="container <?php if( is_front_page() ) { ?> container__home_page <?php }?>">
