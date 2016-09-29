@@ -1,8 +1,6 @@
 "use strict";
 
 jQuery(document).ready(function($) {
-    
-
 
     /* remove placeholder */
     var removePlaceholder = function(){
@@ -47,6 +45,8 @@ jQuery(document).ready(function($) {
         elem.css('height', maxHeight+'px');
     }
 
+
+    /* preloader */
     var hidePeloader = function(){
         $('.preloader').fadeOut();
     }
@@ -61,7 +61,6 @@ jQuery(document).ready(function($) {
         }
        
         headerSlideshow();
-
         hidePeloader();
     });
 

@@ -6,7 +6,7 @@ $options = array(
 	'classname' => array (
 		'type'	=> 'text',
 		'label' => __('Add class name', 'fw' ),
-		'help'  => __('Available classes:<br/> text_padding_20', 'fw'),
+		'help'  => __('Available classes:<br/> padding_30', 'fw'),
 	),
 	'text' => array(
 		'type'   => 'wp-editor',

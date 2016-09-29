@@ -30,12 +30,12 @@
 		
 		<section class="mainheader__top">
 			<div class="center">
-				<a href="tel:+491702678471" class="phone">
-					+49 170 2678 471
+				<a href="tel:<?php echo do_shortcode('[admin_phone_sc]'); ?>" class="phone">
+					<?php echo do_shortcode('[admin_phone_sc]'); ?>
 				</a>
 				<span></span>
-				<a href="mailto:<?php echo get_bloginfo('admin_email'); ?>" class="mail">
-					<?php echo get_bloginfo('admin_email'); ?>
+				<a href="mailto:<?php echo do_shortcode('[admin_email_sc]'); ?>" class="mail">
+					<?php echo do_shortcode('[admin_email_sc]'); ?>
 				</a>
 			</div>
 		</section>

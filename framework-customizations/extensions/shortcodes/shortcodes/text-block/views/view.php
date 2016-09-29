@@ -2,8 +2,9 @@
 	die( 'Forbidden' );
 }
 
-/**
- * @var array $atts
- */
+$classname = ( isset( $atts['classname'] ) && $atts['classname'] ) ? $atts['classname'] : '';
+
 ?>
-<?php echo do_shortcode( $atts['text'] ); ?>
+<div class="<?php echo $classname; ?>">
+	<?php echo do_shortcode( $atts['text'] ); ?>
+</div>

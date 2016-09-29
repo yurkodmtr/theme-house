@@ -10,7 +10,8 @@
 
 // reset
 meyer-reset() 
-*
+
+* 
   box-sizing(border-box) 
   input, textarea
   	border none
@@ -347,10 +348,11 @@ body
 			margin-right rem(0px)
 		background grey
 		padding rem(33px 32px 35px 32px)
-		border-left 8px solid red
-		font-size rem(15px)
+		border-left 8px solid red		
 		line-height rem(22px)
 		font-weight 300
+		p
+			font-size rem(15px)
 
 	.projects
 		&__row
@@ -397,30 +399,38 @@ body
 				font-weight 300
 				line-height rem(18px)
 
+	.fw-col-sm-6
+		margin-bottom rem(30px)
+
 //phone_form
 .phone_form 
-	h2
-		margin-bottom rem(18px)
-	text-align center	
-	.title
-		font-size rem(17px)
-		line-height rem(24px)
-		margin-bottom rem(49px)
-		font-weight 700
-	article
-		clearfix()
+	clearfix()
+	form
 		center(705px)
-		margin-bottom rem(35px)		
-		.input
-			column (8/12)
-			text-align left 
-			+below(mobile-cutoff)
-				stack()
-				margin-bottom 20px
-		.submit
-			column (4/12)
-			+below(mobile-cutoff)
-				stack()
+		margin-bottom rem(35px)	
+	p
+		clearfix()
+		margin-bottom 0px
+		position relative
+		.ajax-loader
+			position absolute
+			left 50%
+			margin-left -8px
+			bottom rem(-20px)
+
+	.wpcf7-form-control-wrap
+		column (8/12)
+		text-align left 
+		input
+			width 100%
+		+below(mobile-cutoff)
+			stack()
+			margin-bottom 20px
+	.submit
+		column (4/12)
+		text-align center	
+		+below(mobile-cutoff)
+			stack()
 	.descr
 		font-size rem(16px)
 		line-height rem(24px)
@@ -530,18 +540,7 @@ body
 				padding-top rem(20px)
 				+below(tablet-cutoff)
 					padding-top 0px
-
-//post_detail
-.post_detail
-	strong
-		font-size rem(19px)
-		display block
-		font-weight 700
-		margin-bottom rem(19px)
-	p
-		font-size rem(14px)
-		line-height rem(18px)
-		margin-bottom rem(18px)
+	
 
 //additional_services
 .additional_services
@@ -842,6 +841,46 @@ body
 
 
 //theme fix styles
+.clear
+	clear both
+
+.padding_30
+	padding rem(30px 30px 30px 30px)
+	+below(tablet-cutoff)
+		padding 0px 0px 0px 0px
+
+h5 
+	font-size rem(24px)
+	line-height rem(30px)
+	font-weight 700
+	margin-bottom rem(30px)
+
+strong
+	font-size rem(19px)
+	display block
+	font-weight 700
+	margin-bottom rem(19px)
+p
+	font-size rem(14px)
+	line-height rem(18px)
+	font-weight 300
+	margin-bottom rem(18px)
+
+.fw-special-subtitle
+	font-size rem(17px)
+	line-height rem(24px)
+	margin-bottom rem(49px)
+	font-weight 700
+
+.phone_form
+	text-align center
+	.submit
+		margin-right 0px
+	p
+		clearfix()
+	.wpcf7-form
+		margin-bottom rem(30px)
+
 
 
 

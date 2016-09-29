@@ -160,8 +160,55 @@ require get_template_directory() . '/inc/jetpack.php';
 	add_action( 'tgmpa_register', '_action_theme_register_required_plugins' );
 }
 
+
 function theme_name_scripts() {
 	wp_enqueue_style( 'theme-house-stylee', get_template_directory_uri() . '/assets/css/main.css' );
 	wp_enqueue_script( 'theme-house-script', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
+
+
+
+
+
+/**
+ * Class for adding a new field to the options-general.php page
+ */
+class Add_Settings_Field {
+
+	public function __construct() {
+		add_action( 'admin_init' , array( $this , 'register_fields' ) );
+	}
+
+	public function register_fields() {
+		register_setting( 'general', 'admin_phone', 'esc_attr' );
+		add_settings_field(
+			'admin_phone_id',
+			'<label for="admin_phone_id">' . __( 'Phone number' , 'admin_phone' ) . '</label>',
+			array( $this, 'fields_html' ),
+			'general'
+		);
+	}
+
+	public function fields_html() {
+		$value = get_option( 'admin_phone', '' );
+		echo '<input type="text" id="admin_phone_id" name="admin_phone" value="' . esc_attr( $value ) . '" />';
+	}
+
+}
+new Add_Settings_Field();
+
+
+
+
+function admin_phone_sc_func() {  
+	$str = get_option( 'admin_phone', '' );
+	return $str;
+} 
+add_shortcode( 'admin_phone_sc', 'admin_phone_sc_func');  
+
+function admin_email_sc_func() {  
+	$str = get_bloginfo('admin_email');
+	return $str;
+} 
+add_shortcode( 'admin_email_sc', 'admin_email_sc_func'); 
