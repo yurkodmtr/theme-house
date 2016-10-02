@@ -170,16 +170,11 @@ add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
 
 
 
-
-/**
- * Class for adding a new field to the options-general.php page
- */
-class Add_Settings_Field {
-
+/* add phone field */
+class Add_Settings_Field__phone {
 	public function __construct() {
 		add_action( 'admin_init' , array( $this , 'register_fields' ) );
 	}
-
 	public function register_fields() {
 		register_setting( 'general', 'admin_phone', 'esc_attr' );
 		add_settings_field(
@@ -189,26 +184,102 @@ class Add_Settings_Field {
 			'general'
 		);
 	}
-
 	public function fields_html() {
 		$value = get_option( 'admin_phone', '' );
 		echo '<input type="text" id="admin_phone_id" name="admin_phone" value="' . esc_attr( $value ) . '" />';
 	}
-
 }
-new Add_Settings_Field();
-
-
-
-
+new Add_Settings_Field__phone();
 function admin_phone_sc_func() {  
 	$str = get_option( 'admin_phone', '' );
 	return $str;
 } 
 add_shortcode( 'admin_phone_sc', 'admin_phone_sc_func');  
 
+
+
 function admin_email_sc_func() {  
 	$str = get_bloginfo('admin_email');
 	return $str;
 } 
 add_shortcode( 'admin_email_sc', 'admin_email_sc_func'); 
+
+/* add worktime field */
+class Add_Settings_Field__worktime {
+	public function __construct() {
+		add_action( 'admin_init' , array( $this , 'register_fields' ) );
+	}
+	public function register_fields() {
+		register_setting( 'general', 'admin_worktime', 'esc_attr' );
+		add_settings_field(
+			'admin_worktime_id',
+			'<label for="admin_worktime_id">' . __( 'Work time' , 'admin_worktime' ) . '</label>',
+			array( $this, 'fields_html' ),
+			'general'
+		);
+	}
+	public function fields_html() {
+		$value = get_option( 'admin_worktime', '' );
+		echo '<input type="text" id="admin_worktime_id" name="admin_worktime" value="' . esc_attr( $value ) . '" />';
+	}
+}
+new Add_Settings_Field__worktime();
+function admin_worktime_sc_func() {  
+	$str = get_option('admin_worktime');
+	return $str;
+} 
+add_shortcode( 'admin_worktime_sc', 'admin_worktime_sc_func'); 
+
+/* add address field */
+class Add_Settings_Field__address {
+	public function __construct() {
+		add_action( 'admin_init' , array( $this , 'register_fields' ) );
+	}
+	public function register_fields() {
+		register_setting( 'general', 'admin_address', 'esc_attr' );
+		add_settings_field(
+			'admin_address_id',
+			'<label for="admin_address_id">' . __( 'Address' , 'admin_address' ) . '</label>',
+			array( $this, 'fields_html' ),
+			'general'
+		);
+	}
+	public function fields_html() {
+		$value = get_option( 'admin_address', '' );
+		echo '<input type="text" id="admin_address_id" name="admin_address" value="' . esc_attr( $value ) . '" />';
+	}
+}
+new Add_Settings_Field__address();
+function admin_address_sc_func() {  
+	$str = get_option('admin_address');
+	return $str;
+} 
+add_shortcode( 'admin_address_sc', 'admin_address_sc_func'); 
+
+
+
+/* add mapiframe field */
+class Add_Settings_Field__mapiframe {
+	public function __construct() {
+		add_action( 'admin_init' , array( $this , 'register_fields' ) );
+	}
+	public function register_fields() {
+		register_setting( 'general', 'admin_mapiframe', 'esc_attr' );
+		add_settings_field(
+			'admin_mapiframe_id',
+			'<label for="admin_mapiframe_id">' . __( 'Google Map Iframe Src' , 'admin_mapiframe' ) . '</label>',
+			array( $this, 'fields_html' ),
+			'general'
+		);
+	}
+	public function fields_html() {
+		$value = get_option( 'admin_mapiframe', '' );
+		echo '<input type="text" id="admin_mapiframe_id" name="admin_mapiframe" value="' . esc_attr( $value ) . '" />';
+	}
+}
+new Add_Settings_Field__mapiframe();
+function admin_mapiframe_sc_func() {  
+	$str = get_option('admin_mapiframe');
+	return $str;
+} 
+add_shortcode( 'admin_mapiframe_sc', 'admin_mapiframe_sc_func');

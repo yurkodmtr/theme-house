@@ -45,6 +45,9 @@ jQuery(document).ready(function($) {
         elem.css('height', maxHeight+'px');
     }
 
+    var contactsFix = function(){
+        $('.contacts__content .item__list').unwrap();
+    }
 
     /* preloader */
     var hidePeloader = function(){
@@ -52,6 +55,7 @@ jQuery(document).ready(function($) {
     }
 
     $(window).load(function(){
+        contactsFix();
         removePlaceholder();
         itemHeightFix($('.advantages .item__list .item'));
         if ( $(window).width() >= 460 ) {
