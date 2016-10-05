@@ -216,13 +216,18 @@ body
 			+below(desktop-cutoff)
 				stack()
 				text-align center
-			text-align right
+			text-align center
 			padding-top rem(13px)
 			ul
 				display inline-block
 				li
 					display inline-block
 					margin-right rem(20px)
+					padding-right rem(20px)
+					margin-bottom rem(20px)
+					border-right 1px solid black
+					&:last-child 
+						border-right none
 					+below(desktop-cutoff)
 						margin-bottom rem(20px)
 					+below(mobile-cutoff)

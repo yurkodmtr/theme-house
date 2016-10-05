@@ -498,7 +498,7 @@ body {
   width: 82.83333333333334%;
   margin-left: 0%;
   margin-right: 3%;
-  text-align: right;
+  text-align: center;
   padding-top: 0.867rem;
 }
 .mainheader__middle .nav:before,
@@ -535,6 +535,12 @@ body {
 .mainheader__middle .nav ul li {
   display: inline-block;
   margin-right: 1.333rem;
+  padding-right: 1.333rem;
+  margin-bottom: 1.333rem;
+  border-right: 1px solid #000;
+}
+.mainheader__middle .nav ul li:last-child {
+  border-right: none;
 }
 @media only screen and (max-width: 1000px) {
   .mainheader__middle .nav ul li {
