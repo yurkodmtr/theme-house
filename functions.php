@@ -283,3 +283,49 @@ function admin_mapiframe_sc_func() {
 	return $str;
 } 
 add_shortcode( 'admin_mapiframe_sc', 'admin_mapiframe_sc_func');
+
+
+/* pagenator */
+function contentPagination() {
+	global $wp_query, $post;
+
+	// Don't print empty markup on single pages if there's nowhere to navigate.
+	if ( is_single() ) {
+		$previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
+		$next     = get_adjacent_post( false, '', false );
+
+		if ( ! $next && ! $previous ) {
+			return;
+		}
+	}
+
+	// Don't print empty markup in archives if there's only one page.
+	if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) ) {
+		return;
+	}
+	
+	?>
+	<ul role="navigation"  class="paging-navigation pagination">
+		<?php
+		$big = 999999999;
+
+		$listButtonPagination = paginate_links( array(
+			'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+			'format'    => '?paged=%#%',
+			'current'   => max( 1, get_query_var( 'paged' ) ),
+			'total'     => $wp_query->max_num_pages,
+			'prev_next' => false,
+			'type'      => 'array'
+		) );
+
+		foreach ( $listButtonPagination as $buttonPagination ) {
+			$current = '';
+			if ( strstr( $buttonPagination, 'current' ) ) {
+				$current = ' class="current"';
+			}
+			echo '<li' . $current . '>' . $buttonPagination . '</li>';
+		}
+		?>
+	</ul>
+	<?php
+}

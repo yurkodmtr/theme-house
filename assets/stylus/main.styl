@@ -198,28 +198,78 @@ body
 
 .mainheader
 	&__middle
-		padding rem(31px 0px 37px 0px)
+		padding rem(31px 0px 20px 0px)
 		+below(desktop-cutoff)
 			padding rem(31px 0px 17px 0px)
 		.logo
-			column(2/12)
-			+below(desktop-cutoff)
-				stack()
-				text-align center
-				margin-bottom 20px
+			float left
 			a
 				display inline-block
 				img 
 					max-width 100%
-		.nav			
-			column(10/12)
-			+below(desktop-cutoff)
-				stack()
-				text-align center
-			text-align right
-			padding-top rem(13px)
+		.nav_btn_open
+			width: 30px
+			height: 30px
+			position: relative
+			float right
+			-webkit-transform: rotate(0deg)
+			-moz-transform: rotate(0deg)
+			-o-transform: rotate(0deg)
+			transform: rotate(0deg)
+			-webkit-transition: .5s ease-in-out
+			-moz-transition: .5s ease-in-out
+			-o-transition: .5s ease-in-out
+			transition: .5s ease-in-out
+			cursor: pointer
+			span
+				display: block
+				position: absolute
+				height: 4px
+				width: 100%
+				background: #ef1c23
+				border-radius: 9px
+				opacity: 1
+				left: 0
+				-webkit-transform: rotate(0deg)
+				-moz-transform: rotate(0deg)
+				-o-transform: rotate(0deg)
+				transform: rotate(0deg)
+				-webkit-transition: .25s ease-in-out
+				-moz-transition: .25s ease-in-out
+				-o-transition: .25s ease-in-out
+				transition: .25s ease-in-out
+				&:nth-child(1) 
+					top: 0px
+				&:nth-child(2), &:nth-child(3) 
+					top: 13px
+				&:nth-child(4) 
+					top: 26px
+			&.open 
+				span:nth-child(1) 
+					top: 18px
+					width: 0%
+					left: 50%
+				span:nth-child(2) 
+					-webkit-transform: rotate(45deg)
+					-moz-transform: rotate(45deg)
+					-o-transform: rotate(45deg)
+					transform: rotate(45deg)
+				span:nth-child(3) 
+					-webkit-transform: rotate(-45deg)
+					-moz-transform: rotate(-45deg)
+					-o-transform: rotate(-45deg)
+					transform: rotate(-45deg)
+				span:nth-child(4) 
+					top: 18px
+					width: 0%
+					left: 50% 
+		
+		.nav		
+			display none	
+			text-align left
+			padding-top rem(20px)
 			ul
-				display inline-block
+				display block
 				li
 					display inline-block
 					margin-right rem(20px)
@@ -230,10 +280,17 @@ body
 						border-right none
 					+below(desktop-cutoff)
 						margin-bottom rem(20px)
-					+below(mobile-cutoff)
+					+below(tablet-cutoff)
 						display block
 						margin-right 0px
-						margin-bottom 20px
+						margin-bottom 0px
+						text-align center
+						padding-right 0px
+						border-right none
+						border-bottom 1px solid black
+						padding 20px 0px
+						&:last-child
+							border-bottom none
 					&:last-child
 						margin-right 0px
 					a
@@ -629,6 +686,8 @@ body
 //documents
 .documents
 	.item
+		&__list
+			clearfix()
 		column(1/3, cycle: 3)
 		+below(tablet-cutoff) 
 			column(1/2, cycle: 2, uncycle: 3)
@@ -823,9 +882,7 @@ body
 			margin-bottom rem(40px)
 		li
 			display inline-block
-			margin rem(0px 10px)
-			+below(tablet-cutoff)
-				margin rem(0px 10px 20px 10px)
+			margin rem(0px 10px 20px 10px)
 			+below(mobile-cutoff)
 				display block
 				margin rem(0px 0px 20px 0px)
@@ -992,7 +1049,34 @@ a img.aligncenter {
 	z-index: 100000; /* Above WP toolbar. */
 }
 
+// pagination
+.pagination 
+	text-align center
+	li
+		display inline-block
+		width 36px
+		height 36px
+		background transparent
+		border-radius 50%
+		line-height 36px
+		color #582294
+		font-size 16px
+		margin-right 20px
+		transition(all 200ms ease-out)
+		&.current, &:hover
+			background white
+		&:last-child
+			margin-right 0px
+		a
+			color black
+			text-decoration none
+			display block
+			min-width 100%
+			height 100%			 
+		span
+			color black
 
+			
 	
 
 

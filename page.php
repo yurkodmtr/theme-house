@@ -15,6 +15,7 @@
 get_header(); ?>
 
 	<div class="center">
+		
 
 		<section class="content">
 			<h3><?php echo the_title(); ?></h3>
@@ -51,6 +52,12 @@ get_header(); ?>
 		</aside>
 
 	</div>
+
+	<?php if ($post_slug == 'services_and_price') { ?>		  	
+		</section>
+		<?php get_template_part( 'template-parts/content', 'services_and_price__footer' ); ?>
+		<section>
+	<?php } ?>
 
 <?php
 get_footer();

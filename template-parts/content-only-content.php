@@ -9,8 +9,9 @@
 
 ?>
 
-	
+
 	<?php the_content(); ?>  		
+
 
 
 
