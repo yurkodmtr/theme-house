@@ -46,7 +46,10 @@
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.jpg" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
 					</a>
-				</div>	
+				</div>
+				<div class="nav">
+					<?php wp_nav_menu(array( 'container' => '', 'menu' => 'header_menu', 'menu_class' => '')); ?>
+				</div>
 				<div class="nav_btn_open">
 				  <span></span>
 				  <span></span>
@@ -55,7 +58,7 @@
 				</div>			
 			</div>
 			<div class="center">
-				<div class="nav">
+				<div class="nav_device">
 					<?php wp_nav_menu(array( 'container' => '', 'menu' => 'header_menu', 'menu_class' => '')); ?>
 				</div>
 			</div>			

@@ -22,7 +22,7 @@
 				</figure>
 				<article>
 					<div>								
-						<?php the_excerpt(); ?>
+						<?php the_title(); ?>
 					</div>
 				</article>
 			</a>

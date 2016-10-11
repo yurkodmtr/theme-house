@@ -157,6 +157,10 @@ body
 
 // --------------------------------------------- header
 .mainheader
+	position relative
+	z-index 5
+
+.mainheader
 	&__top
 		background red
 		padding rem(9px 0px 10px)
@@ -198,7 +202,7 @@ body
 
 .mainheader
 	&__middle
-		padding rem(31px 0px 20px 0px)
+		padding rem(31px 0px 37px 0px)
 		+below(desktop-cutoff)
 			padding rem(31px 0px 17px 0px)
 		.logo
@@ -208,6 +212,9 @@ body
 				img 
 					max-width 100%
 		.nav_btn_open
+			display none
+			+below(desktop-cutoff)
+				display block
 			width: 30px
 			height: 30px
 			position: relative
@@ -263,21 +270,47 @@ body
 					top: 18px
 					width: 0%
 					left: 50% 
-		
+
+.mainheader
+	&__middle
 		.nav		
-			display none	
-			text-align left
-			padding-top rem(20px)
-			ul
+			display block
+			+below(desktop-cutoff)
+				display none	
+			text-align right
+			padding-top rem(10px)
+			& > ul
 				display block
-				li
+				& > li
 					display inline-block
 					margin-right rem(20px)
-					padding-right rem(20px)
-					margin-bottom rem(20px)
-					border-right 1px solid black
-					&:last-child 
-						border-right none
+					position relative
+					padding-bottom 10px
+					& > ul 
+						transition(all 200ms ease-out)
+						visibility hidden
+						opacity 0
+						background white
+						position absolute
+						left 50%
+						-webkit-transform: translate(-50%,0);
+						-moz-transform: translate(-50%,0);
+						-o-transform: translate(-50%,0);
+						-ms-transform: translate(-50%,0);
+						transform: translate(-50%,0);
+						top 25px
+						text-align left
+						padding rem(30px)
+						& > li
+							margin-bottom rem(20px)
+							&:last-child
+								margin-bottom 0px
+							& > a
+								white-space nowrap
+					&:hover
+						& > ul
+							visibility visible
+							opacity 1
 					+below(desktop-cutoff)
 						margin-bottom rem(20px)
 					+below(tablet-cutoff)
@@ -301,6 +334,47 @@ body
 						text-decoration none
 						&:hover
 							text-decoration underline
+		.nav_device
+			display none
+			a
+				padding 0px 10px
+				display inline-block
+				position relative
+				font-weight 700
+				text-transform uppercase
+				font-size rem(14px)
+				line-height rem(18px)
+				color black
+				text-decoration none
+				&:hover
+					text-decoration underline
+			& > ul
+				display block
+				li
+					padding rem(20px 0px)
+					border-bottom 1px solid black
+					&:last-child
+						border-bottom none
+					& > ul
+						margin-top rem(20px)						
+						border-top 1px solid black
+						li
+							padding-left rem(20px)							
+							&:last-child
+								padding-bottom 0px
+							a
+								padding-left rem(10px)
+								&:before
+									content ""
+									display block
+									width 5px
+									height 1px
+									background black
+									position absolute
+									left 0px
+									top 8px
+
+
 
 .mainheader
 	&__bottom

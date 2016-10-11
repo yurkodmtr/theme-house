@@ -60,19 +60,62 @@ jQuery(document).ready(function($) {
         $('.nav_btn_open').click(function(){
             if ( $(this).hasClass('open') ) {
                 $(this).removeClass('open');
-                $('.mainheader__middle .nav').slideUp();
+                $('.mainheader__middle .nav_device').slideUp();
             } else {
                 $(this).addClass('open');
-                $('.mainheader__middle .nav').slideDown();
+                $('.mainheader__middle .nav_device').slideDown();
             }
         });
     }
+
+    /* get width of scrollbar */
+    var scrollWidth = function(){
+        window.scrollWidth = 0;
+        var getScrollBarWidth =  function() {
+           var inner = document.createElement('p');
+           inner.style.width = "100%";
+           inner.style.height = "200px";
+
+           var outer = document.createElement('div');
+           outer.style.position = "absolute";
+           outer.style.top = "0px";
+           outer.style.left = "0px";
+           outer.style.visibility = "hidden";
+           outer.style.width = "200px";
+           outer.style.height = "150px";
+           outer.style.overflow = "hidden";
+           outer.appendChild (inner);
+
+           document.body.appendChild (outer);
+
+           var w1 = inner.offsetWidth;
+           outer.style.overflow = 'scroll';
+           var w2 = inner.offsetWidth;
+           if (w1 == w2) w2 = outer.clientWidth;
+
+           document.body.removeChild (outer);
+
+            window.scrollWidth = (w1 - w2);
+       }
+       getScrollBarWidth();
+       console.log(window.scrollWidth);
+    }
+
+    /* hide device menu */
+    var deiviceMenuHide = function(){
+        if ( $(window).width()+window.scrollWidth >= 1000 ) {
+            $('.mainheader__middle .nav_device').hide();
+            $('.nav_btn_open').removeClass('open')
+        }
+    }
+
+
 
     $(window).load(function(){
         contactsFix();
         removePlaceholder();
         itemHeightFix($('.advantages .item__list .item'));
-        if ( $(window).width() >= 460 ) {
+        if ( $(window).width()+window.scrollWidth >= 460 ) {
              itemHeightFix($('.documents .item article div'));
         } else {
             $('.documents .item article div').css('height','auto');
@@ -81,14 +124,18 @@ jQuery(document).ready(function($) {
         navBtn();
         headerSlideshow();
         hidePeloader();
+        scrollWidth();
     });
 
     $(window).resize(function(){
         itemHeightFix($('.advantages .item__list .item'));
-        if ( $(window).width() >= 460 ) {
+        if ( $(window).width()+window.scrollWidth >= 460 ) {
              itemHeightFix($('.documents .item article div'));
         } else {
             $('.documents .item article div').css('height','auto');
         }
+
+        deiviceMenuHide();
+        scrollWidth();
     });
 });
